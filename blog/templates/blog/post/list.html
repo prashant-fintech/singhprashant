@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+    {% for post in posts %}
+        <article class="post-excerpt">
+            <h2>{{ post.title }}</h2>
+            {% if post.featured_image %}
+                <img src="{{ post.featured_image.url }}" class="img-fluid" alt="{{ post.title }}">
+            {% endif %}
+            <p class="text-muted">By {{ post.author }} on {{ post.publish }}</p>
+            <p>{{ post.body|truncatewords:30|linebreaks }}</p>
+            <a href="{% url 'blog:post_detail' post.id %}" class="btn btn-primary">Read More</a>
+        </article>
+    {% endfor %}
+{% endblock %}
