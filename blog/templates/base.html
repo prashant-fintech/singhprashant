@@ -1,151 +1,129 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <title>Prashant Singh's Data Engineering|Fintech Blog</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Prashant Singh{% endblock %}</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS for further styling -->
-    <style>
-        /* Custom styles */
-        .site-title {
-            font-size: 2rem;
-            font-weight: bold;
-        }
-        .post-excerpt {
-            margin-bottom: 1.5rem;
-        }
-        .sidebar-widget {
-            margin-bottom: 1.5rem;
-        }
-    </style>
-    {% block extra_head %}{% endblock %}
+    <link rel="shortcut icon" href="favicon.ico">
+    {% block custom_css %}{% endblock %}
+
+    <!-- FontAwesome JS-->
+    <script defer src="{% static 'assets/fontawesome/js/all.min.js' %}"></script>
+
+    <!-- Theme CSS -->
+    <link id="theme-style" rel="stylesheet" href="{% static 'assets/css/theme-2.css' %}">
+
 </head>
+
 <body>
-    <!-- Header with navigation bar -->
-    <header class="bg-dark text-white">
-        <div class="container">
-            <div class="d-flex justify-content-between align-items-center py-3">
-                <div class="site-title">
-                    <!-- Site Title/Logo -->
-                    <a href="/" class="text-white text-decoration-none">Prashant Singh</a>
-                </div>
-                <!-- Navigation bar -->
-                <nav class="navbar navbar-expand-lg navbar-dark">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Blog</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">About</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Contact</a>
-                            </li>
-                        </ul>
+
+<header class="header text-center">
+    <h1 class="blog-name pt-lg-4 mb-0"><a class="no-text-decoration" href="{% url 'post_list' %}">Prashant's Blog</a>
+    </h1>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navigation"
+                aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div id="navigation" class="collapse navbar-collapse flex-column">
+            <div class="profile-section pt-3 pt-lg-0">
+                <img class="profile-image mb-3 rounded-circle mx-auto" src="{% static 'assets/images/blog/profile.jpg' %}"
+                     alt="image">
+
+                <div class="bio mb-3">Hi, my name is Prashant Singh. Python developer with 10 years' finance and fintech
+                    experience, specializing in financial data analytics and machine learning. Proficient in data
+                    processing with frameworks like PySpark, Kafka, Hadoop, Airflow.<br><a href="{% url 'about' %}">Find
+                        out more about me</a></div><!--//bio-->
+                <ul class="social-list list-inline py-3 mx-auto">
+                    <li class="list-inline-item"><a href="https://x.com/prashantfintech"><i
+                            class="fab fa-twitter fa-fw"></i></a></li>
+                    <li class="list-inline-item"><a href="https://www.linkedin.com/in/prashant-fintech/"><i
+                            class="fab fa-linkedin-in fa-fw"></i></a></li>
+                    <li class="list-inline-item"><a href="https://github.com/prashant-fintech"><i
+                            class="fab fa-github-alt fa-fw"></i></a></li>
+                    <li class="list-inline-item"><a href="https://stackoverflow.com/users/26364077/prashant-fintech"><i
+                            class="fab fa-stack-overflow fa-fw"></i></a></li>
+                </ul><!--//social-list-->
+                <hr>
+            </div><!--//profile-section-->
+
+            <ul class="navbar-nav flex-column text-start">
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'post_list' %}"><i class="fas fa-home fa-fw me-2"></i>Blog
+                        Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}"><i class="fas fa-user fa-fw me-2"></i>About Me</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+</header>
+
+<div class="main-wrapper">
+
+    <section class="cta-section theme-bg-light py-5">
+        <div class="container text-center single-col-max-width">
+            <h2 class="heading">Personal Blog - Python, AWS, Big Data and Data Science</h2>
+            <div class="intro">Welcome to my blog. Subscribe and get my latest blog post in your inbox.</div>
+            <div class="single-form-max-width pt-3 mx-auto">
+                <form class="signup-form row g-2 g-lg-2 align-items-center">
+                    <div class="col-12 col-md-9">
+                        <label class="sr-only" for="semail">Your email</label>
+                        <input type="email" id="semail" name="semail1" class="form-control me-md-1 semail"
+                               placeholder="Enter email">
                     </div>
-                </nav>
-            </div>
-        </div>
-    </header>
+                    <div class="col-12 col-md-2">
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </div>
+                </form><!--//signup-form-->
+            </div><!--//single-form-max-width-->
+        </div><!--//container-->
+    </section>
 
-    <!-- Main Content Area -->
-    <main class="container my-4">
-        <div class="row">
-            <!-- Blog Post Section -->
-            <div class="col-lg-8">
-                {% block content %}
+    {% block content %}
+    {% endblock %}
 
-                {% endblock %}
-            </div>
+    <footer class="footer text-center py-2 theme-bg-dark">
 
-            <!-- Sidebar -->
-            <aside class="col-lg-4">
-                <!-- Search Bar -->
-                <div class="sidebar-widget">
-                    <form method="get" action="">
-                        <div class="input-group">
-                            <input type="text" class="form-control" name="q" placeholder="Search...">
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" type="submit">Go</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-                <!-- Recent Posts Widget -->
-                <div class="sidebar-widget">
-                    <h5>Recent Posts</h5>
-                    <ul class="list-unstyled">
-                        {% for recent_post in posts %}
-                        <li><a href="{% url 'blog:post_detail' recent_post.id %}">{{ recent_post.title }}</a></li>
-                        {% endfor %}
-                    </ul>
-                </div>
-
-                <!-- Categories Widget -->
-                <div class="sidebar-widget">
-                    <h5>Categories</h5>
-                {% if categories %}
-                    <ul class="list-unstyled">
-
-                        {% for category in categories %}
-                        <li><a href="{% url 'category_posts' category.slug %}">{{ category.name }}</a></li>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
-                </div>
-
-                <!-- Optional: Social Media Links -->
-                <div class="sidebar-widget">
-                    <h5>Follow Us</h5>
-                    <a href="#" class="btn btn-outline-primary btn-sm">Facebook</a>
-                    <a href="#" class="btn btn-outline-info btn-sm">Twitter</a>
-                    <a href="#" class="btn btn-outline-danger btn-sm">Instagram</a>
-                </div>
-
-                <!-- Optional: Email Subscription Form -->
-                <div class="sidebar-widget">
-                    <h5>Subscribe</h5>
-                    <form method="post" action="">
-                        {% csrf_token %}
-                        <div class="input-group">
-                            <input type="email" class="form-control" name="email" placeholder="Enter your email...">
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" type="submit">Subscribe</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </aside>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-dark text-white py-4">
-        <div class="container">
-            <div class="d-flex justify-content-between">
-                <p>&copy;  My Blog. All rights reserved.</p>
-                <div>
-                    <a href="#" class="text-white text-decoration-none">Privacy Policy</a>
-                    <span class="mx-2">|</span>
-                    <a href="#" class="text-white text-decoration-none">Terms of Service</a>
-                </div>
-            </div>
-        </div>
+        <small class="copyright">©
+            <script>document.write(new Date().getFullYear());</script>
+            Designed with <span class="sr-only">love</span><i class="fas fa-heart" style="color: #fb866a;"></i> by
+            Prashant Singh</small>
     </footer>
 
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</div><!--//main-wrapper-->
+<script>
+    var disqus_config = function () {
+        this.page.url = '{{ request.build_absolute_uri }}';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = '{{ post.id }}'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+
+    (function () {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://singhprashantin.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<script id="dsq-count-scr" src="//singhprashantin.disqus.com/count.js" async></script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+                                                  rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+
+<!-- Javascript -->
+<script src="{% static 'assets/plugins/popper.min.js' %}"></script>
+<script src="{% static 'assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+
+
 </body>
 </html>
+
