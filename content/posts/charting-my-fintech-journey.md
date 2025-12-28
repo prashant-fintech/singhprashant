@@ -1,7 +1,7 @@
 ---
 title: "Charting My Fintech Journey"
 date: 2025-12-28T14:54:38+05:30
-draft: true
+draft: false
 math: true
 mermaid: true
 author: "Prashant Singh"
