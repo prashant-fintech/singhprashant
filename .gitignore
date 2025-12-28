@@ -1,0 +1,30 @@
+# Hugo default output directory
+/public/
+
+# Hugo module cache
+/_cache/
+
+# Temporary lock files
+/.hugo_build.lock
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node modules (if using npm/yarn for assets)
+node_modules/
+
+# Resources directory (generated)
+/resources/

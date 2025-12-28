@@ -1,0 +1,98 @@
+baseURL = 'https://singhprashant.in/'
+languageCode = 'en-us'
+title = 'Prashant Singh'
+theme = 'PaperMod'
+
+# Enable high-performance processing
+enableRobotsTXT = true
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+
+[minify]
+  disableXML = false
+  minifyOutput = true
+
+[params]
+  env = "production"
+  title = "Prashant Singh"
+  description = "Data Engineer @ Nomura | 11 Years in FinTech | IIM Kashipur AFRM"
+  keywords = ["Data Engineering", "Risk Management", "FinTech", "Python", "Nomura", "IIM Kashipur"]
+  author = "Prashant Singh"
+  
+  # Theme Aesthetics
+  defaultTheme = "auto" # Light/Dark mode based on system
+  disableThemeToggle = false
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowCodeCopyButtons = true
+  ShowFullTextContent = false
+  ShowBreadCrumbs = true
+  
+  # Profile Mode (Home Page)
+  [params.profileMode]
+    enabled = true
+    title = "Prashant Singh"
+    subtitle = "Data Engineer @ Nomura | 11.5 Years FinTech Experience | Led Analytics for 3000+ Branches | IIM Kashipur (AFRM)"
+    imageUrl = "img/profile.png" # Place your photo in /static/img/profile.jpg
+    imageWidth = 150
+    imageHeight = 150
+    
+    [[params.profileMode.buttons]]
+      name = "Technical Blog"
+      url = "posts"
+    [[params.profileMode.buttons]]
+      name = "Risk Projects"
+      url = "categories/risk-management"
+
+  # Social Icons
+  [[params.socialIcons]]
+    name = "linkedin"
+    url = "https://linkedin.com/in/prashant-fintech" # Replace this
+  
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/prashant-fintech" # Replace this
+
+# --- Math & Mermaid Fixes ---
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.extensions.passthrough]
+      enable = true
+      [markup.goldmark.extensions.passthrough.delimiters]
+        block = [['$$', '$$']]
+        inline = [['$', '$']]
+    [markup.goldmark.renderer]
+      unsafe = true # Required for Mermaid rendering
+
+# --- Navigation Menu ---
+
+[[menu.main]]
+  name = "Home"
+  url = "/"
+  weight = 10
+
+[[menu.main]]
+  name = "Posts"
+  url = "posts"
+  weight = 20
+
+[[menu.main]]
+  name = "Risk Mgmt"
+  url = "categories/risk-management"
+  weight = 30
+
+[[menu.main]]
+  name = "Data Eng"
+  url = "categories/data-engineering"
+  weight = 40
+
+[[menu.main]]
+  name = "Search"
+  url = "search"
+  weight = 50
+
+# --- Search Configuration ---
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
